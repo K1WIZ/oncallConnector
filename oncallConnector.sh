@@ -24,7 +24,11 @@ mqttAlertTopic="alerts/oncall"
 mqttActionTopic="domoticz/in"
 mqttAction=""
 mailFile=""
-scanFor=`/usr/bin/grep -i 'problem alert' $mailFile | cut -d' ' -f3- | grep 'CRITICAL'`
+
+# Location to scan for relevant messages
+scanFor() {
+/usr/bin/grep -i 'problem alert' $mailFile | cut -d' ' -f3- | grep 'CRITICAL'
+}
 
 # Perform an action via MQTT such as turning on a light, buzzer, etc
 wakeUp() {
@@ -54,7 +58,7 @@ do
  else
    dispatch;
  fi
-done < <($scanFor)
+done < <(scanFor)
 
 if [ $count -lt $threshold ]; then
    break
@@ -66,7 +70,7 @@ fi
 # Count the number alerts to determing threshold.  
 countAlerts() {
  cd /var/mail/.
- count=`$scanFor | wc -l`
+ count=`scanFor | wc -l`
  checkAlerts
 }
 
