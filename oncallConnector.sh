@@ -3,6 +3,13 @@
 # Script to search incoming mail messages for PROBLEM Alerts and dispatch alerts to MQTT
 # and invoke home automation actions for waking my ass up at 3AM.  Set in crontab to run every minute.
 # 
+# Dependencies:
+# 1) MQTT Push Client  - if you want notifications to go to your iPhone
+# 2) fetchmail - install and configure fetchmail to pickup mail of interest from a gmail box or whatever
+# 3) mosquitto-client - install on the same host that this script will run.  Used for performing dispatch
+#    of alerts as well as invoking actions through your home automation system (via MQTT) to help get you 
+#    out of bed at those nasty hours.
+# 
 # John Rogers   10/9/20
 #
 
