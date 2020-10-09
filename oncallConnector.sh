@@ -22,7 +22,7 @@ mqttUser=""
 mqttPasswd=""
 mqttAlertTopic="alerts/oncall"
 mqttActionTopic="domoticz/in"
-mqttAction=""
+mqttAction=`echo -e "{\"command\": \"switchlight\", \"idx\": 4, \"switchcmd\": \"On\" }"`  # example device on domoticz control
 mailFile=""
 
 # Location to scan for relevant messages
