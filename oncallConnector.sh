@@ -13,19 +13,20 @@ threshold="10"
 mqttHost=""
 mqttUser=""
 mqttPasswd=""
-mqttTopic=""
+mqttAlertTopic="alerts/oncall"
+mqttActionTopic="domoticz/in"
 mqttAction=""
 mailFile=""
 scanFor=`/usr/bin/grep -i 'problem alert' $mailFile | cut -d' ' -f3- | grep 'CRITICAL'`
 
 # Perform an action via MQTT such as turning on a light, buzzer, etc
 wakeUp() {
-mosquitto_pub -u $mqttUser -P $mqttPasswd -h $mqttHost -p 1883 -t $mqttTopic -m "${mqttAction}"
+mosquitto_pub -u $mqttUser -P $mqttPasswd -h $mqttHost -p 1883 -t $mqttActionTopic -m "${mqttAction}"
 }
 
 # Dispatch a copy of alerts via MQTT to MQTT Push Client on iPhone
 dispatch() {
-mosquitto_pub -u $mqttUser -P $mqttPasswd -h $mqttHost -p 1883 -t $mqttTopic -m "${alert}"
+mosquitto_pub -u $mqttUser -P $mqttPasswd -h $mqttHost -p 1883 -t $mqttAlertTopic -m "${alert}"
 }
 
 # Clear the mail file when we're done processing
