@@ -33,6 +33,20 @@ dispatch() {
 mosquitto_pub -u $mqttUser -P $mqttPasswd -h $mqttHost -p 1883 -t $mqttAlertTopic -m "${alert}"
 }
 
+# Support for Pushover - populate your user key and token
+pushOver() {
+curl -s \
+  --form-string "token=" \
+  --form-string "user=" \
+  --form-string "message=${alert}" \
+  --form-string "title=ONCALL PAGE" \
+  --form-string "sound=persistent" \
+  --form-string "priority=2" \
+  --form-string "retry=60" \
+  --form-string "expire=7200" \
+  https://api.pushover.net/1/messages.json
+}
+
 pageMe() {
 #alertPage=`echo $alert | cut -c 1-80`
 #echo $alertPage
@@ -57,6 +71,7 @@ do
  else
    dispatch;
    pageMe;
+   pushOver;
  fi
 done < <(scanFor)
 
