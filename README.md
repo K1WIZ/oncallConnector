@@ -10,6 +10,6 @@ How to use:
 
 Enjoy reliable alerting and wakeup.
 
-Soon to be added improvements:
-1) POCSAG actions for sending alerts to an optional POCSAG private paging transmitter. (complated)
+Added improvements:
+1) POCSAG actions for sending alerts to an optional POCSAG private paging transmitter. (completed)
 2) support for Pushover API (api.pushover.net) - (completed)
