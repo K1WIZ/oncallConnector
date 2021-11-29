@@ -50,6 +50,7 @@ curl -s \
 pageMe() {
 #alertPage=`echo $alert | cut -c 1-80`
 #echo $alertPage
+# adjust path of script as appropriate for your system
 /home/john/sendPage.sh -m "${alert}";
 }
 
@@ -70,8 +71,8 @@ do
    break
  else
    dispatch;
-   pageMe;
    pushOver;
+#   pageMe;      # uncomment to enable POCSAG pager function
  fi
 done < <(scanFor)
 
