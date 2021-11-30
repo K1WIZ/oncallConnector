@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to search incoming mail messages for PROBLEM Alerts and dispatch alerts to MQTT
+# Script to search incoming mail messages for PROBLEM Alerts from Nagios and dispatch alerts to MQTT
 # and invoke HA actions for waking my ass up at 3AM.  Set in crontab to run every minute.
 # 
 # John Rogers   10/10/20
@@ -20,7 +20,7 @@ mailFile=""
 
 # Location to scan for relevant messages
 scanFor() {
-mail -p | grep -e 'WARNING' -e 'CRITICAL'
+mail -p | grep -e 'WARNING' -e 'CRITICAL' -e 'UNKNOWN' -e 'HOST DOWN'
 }
 
 # Perform an action via MQTT such as turning on a light, buzzer, etc
