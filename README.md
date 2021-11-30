@@ -14,4 +14,4 @@ Added improvements:
 POCSAG actions for sending alerts to an optional POCSAG private paging transmitter. (completed) \
 <img src="https://www.pistar.uk/_images/Pi-Star_Logo_Full_White_on_Trans.png" width="200"><br>
 Support for Pushover API (api.pushover.net) - (completed) \
-<img src="https://pushover.net/assets/pushover-header-3b1b9decd97ec4989450d31609017f0248aa15399c25ca958e685017147fb50d.png">
+<img src="https://pushover.net/assets/pushover-header-3b1b9decd97ec4989450d31609017f0248aa15399c25ca958e685017147fb50d.png" width="200">
