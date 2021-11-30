@@ -10,7 +10,7 @@ How to use:
 
 Enjoy reliable alerting and wakeup.
 
-Added improvements:
+Added improvements: \
 POCSAG actions for sending alerts to an optional POCSAG private paging transmitter. (completed) \
 <img src="https://www.pistar.uk/_images/Pi-Star_Logo_Full_White_on_Trans.png" width="200"><br>
 Support for Pushover API (api.pushover.net) - (completed) \
